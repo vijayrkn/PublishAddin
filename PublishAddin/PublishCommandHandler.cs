@@ -65,7 +65,7 @@ namespace PublishAddin
 						var context = new TargetEvaluationContext();
 						context.GlobalProperties.SetValue("DeployOnBuild", true);
 						context.GlobalProperties.SetValue("Password", password);
-						project.ProjectProperties.SetValue("PublishProfile", profileName);
+						context.GlobalProperties.SetValue("PublishProfile", profileName);
 
 						var targetResult = await project.RunTarget(monitor, 
 						                                           "build", 
