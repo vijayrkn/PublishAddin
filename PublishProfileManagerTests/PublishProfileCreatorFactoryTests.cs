@@ -14,17 +14,17 @@ namespace PublishProfileManagerTests
         public void PublishProfileFactory_ReturnsMsDeployProfileWithCorrectSetttings_FromPublishSettings()
         {
             var msDeployProfile = PublishProfileCreatorFactory.CreateMSDeployPublishProfileFromPublishSettings(TestResources.PublishSettings);
-			Assert.Equal(TestResources.MsDeployFromPublishSettings, msDeployProfile.Value);
+            Assert.Equal(TestResources.MsDeployFromPublishSettings, msDeployProfile.Value);
         }
 
         [Fact]
         public void PublishProfileFactory_ReturnsEncryptedUserProfile()
         {
             var userProfile = PublishProfileCreatorFactory.CreateUserPublishProfileFromPublishSettings(TestResources.PublishSettings);
-			using (XmlTextReader reader = new XmlTextReader(new StringReader(userProfile.Value)))
+            using (XmlTextReader reader = new XmlTextReader(new StringReader(userProfile.Value)))
             {
                 Project userProject = new Project(reader);
-				Assert.NotNull(userProject.GetProperty("EncryptedPassword").EvaluatedValue);
+                Assert.NotNull(userProject.GetProperty("EncryptedPassword").EvaluatedValue);
             }
         }
 

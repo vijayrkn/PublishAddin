@@ -11,11 +11,11 @@ namespace PublishProfileManagerTests
 {
     public class UserPublishProfileTests
     {
-		[Fact]
+        [Fact]
         public void UserPublishProfile_ReturnsValidPublishProfile()
         {
             string userPublishProfile = new UserPublishProfile().ToString();
-			Assert.Equal(TestResources.UserPublishProfile, userPublishProfile);
+            Assert.Equal(TestResources.UserPublishProfile, userPublishProfile);
         }
     }
 }
